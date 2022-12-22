@@ -12,7 +12,9 @@ const Voice = () => {
     const localVideoRef = React.useRef<HTMLVideoElement | null>(null)
 
     //liste des média actifs
-    // 1. Video 2. Audio
+    // 1. Video
+    // 2. Audio
+    // [{Video}, {Audio}]
     const [AllMedia, setAllMedia] = React.useState<MediaDeviceInfo[] | null>(null)
 
     const [VideoDevices, setVideoDevices] = React.useState<MediaDeviceInfo[] | null>(null)
@@ -98,19 +100,6 @@ const Voice = () => {
                 {
                     devices?.map(e => {
                         if (e.kind === "audioinput") {
-                            return (
-                                <option>{e.label}</option>
-                            )
-                        }
-                    })
-                }
-            </select>
-
-            <h3>Audio (Sortie)</h3>
-            <select name='audio' >
-                {
-                    devices?.map(e => {
-                        if (e.kind === "audiooutput") {
                             return (
                                 <option>{e.label}</option>
                             )
